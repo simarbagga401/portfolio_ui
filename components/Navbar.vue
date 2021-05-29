@@ -1,29 +1,42 @@
 <template>
-  <div>
-    <div class="nav">
-      <NuxtLink class="logo" to="/">John Doe</NuxtLink>
-      <section class="links">
-        <ul>
-          <li>
-            <NuxtLink to="/about">About</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/vlogs">Vlogs</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/blogs">Blogs</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/photogallery">Photo Gallery</NuxtLink>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </div>
+  <nav class="nav">
+    <NuxtLink class="logo" to="/">John Doe</NuxtLink>
+
+    <section class="links">
+      <ul>
+        <li v-for="link in links" :key="link.name">
+          <NuxtLink :to="link.link">{{ link.name }}</NuxtLink>
+        </li>
+      </ul>
+    </section>
+  </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      links: [
+        {
+          name: 'About',
+          link: '/about',
+        },
+        {
+          name: 'Vlogs',
+          link: '/vlogs',
+        },
+        {
+          name: 'Blogs',
+          link: '/blogs',
+        },
+        {
+          name: 'Photo Gallery',
+          link: '/photogallery',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +55,7 @@ export default {};
 
   .links {
     width: 80%;
+    background: rgb(216, 216, 216);
   }
 
   ul {
