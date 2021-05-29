@@ -1,4 +1,3 @@
-import { resolve } from 'path';
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -21,7 +20,7 @@ export default {
   css: ['~assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/vue-window-size.js'],
+  plugins: ['~/plugins/vue-tooltip.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -48,7 +47,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vue-window-size'],
+    transpile: ['vue-tooltip'],
   },
 
   //vue config

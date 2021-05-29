@@ -3,27 +3,27 @@ const width =
   document.documentElement.clientWidth ||
   document.body.clientWidth;
 
-export function someFunction2(e) {
-  console.log('window is resizing', e);
-  // if () {
-
-  // }
-}
-
-function toogleLayout() {
-  if ($nuxt.$data.layoutName === 'default') {
-    $nuxt.setLayout('mobile');
+export function responsiveLayout() {
+  if (width <= 720) {
+    toogle('mobile');
+    console.log(
+      '%c To See Desktop Site Refresh After Setting Window Width Above 800',
+      'color:black;background:orange'
+    );
   } else {
-    $nuxt.setLayout('default');
+    console.log(
+      '%c To See Mobile Site Refresh After Setting Window Width Below 800',
+      'color:black;background:orange'
+    );
+
+    toogle('default');
   }
 }
 
-// export function beResponsive(mobileLayout) {
-//   if (mobileLayout === false && width <= 800) {
-//     console.log('click to switch to mobile site');
-//     mobileLayout = true;
-//   }
-//   if (mobileLayout === true && width >= 850) {
-//     console.log('click to switch to to desktop site');
-//   }
-// }
+function toogle(layout) {
+  if (layout === 'default') {
+    $nuxt.setLayout('default');
+  } else {
+    $nuxt.setLayout('mobile');
+  }
+}
