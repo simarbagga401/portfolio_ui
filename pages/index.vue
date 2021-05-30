@@ -1,5 +1,7 @@
 <template>
-  <div>contnet</div>
+  <div>
+    <ImageMask imageName="Stock2" width="400" height="600" />
+  </div>
 </template>
 
 <script>

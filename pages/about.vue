@@ -5,13 +5,14 @@
 </template>
 
 <script>
-import { responsiveLayout } from '~/functions/responsiveLayout';
+import {
+  responsiveLayout,
+  alertResponsiveLayout,
+} from '~/functions/responsiveLayout';
 export default {
-  layout: () => {
-    let windowWidth = window.innerWidth;
-    let answer = windowWidth < 720 ? 'mobile' : 'default';
-
-    return answer;
+  layout: responsiveLayout(),
+  mounted() {
+    alertResponsiveLayout();
   },
 };
 </script>

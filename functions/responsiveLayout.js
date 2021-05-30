@@ -1,6 +1,6 @@
 const windowWidth =
-  window.innerWidth ||
   document.documentElement.clientWidth ||
+  window.innerWidth ||
   document.body.clientWidth;
 
 export function alertResponsiveLayout() {

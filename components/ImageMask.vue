@@ -1,34 +1,35 @@
 <template>
   <div>
-    <div class="div">
-      <!-- <img :src="src" :style="{ width: width, height: height }" /> -->
+    <div
+      class="img-container"
+      :style="{ width: width + 'px', height: height + 'px' }"
+    >
+      <img src="~/assets/images/Stock5.png" alt="" class="img" />
     </div>
-    <div class="box" :style="maskStyle">box</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['imageSrc', 'width', 'height'],
+  props: ['width', 'height'],
   data() {
     return {
-      width2: 100,
-      height2: 100,
-      // src: '../assets/images/Stock5',
+      // imageName: require('~/assets/images/Stock5.png'),
     };
-  },
-  computed: {
-    maskStyle() {
-      return `width:${this.width2}px; height:${this.height2}px; background-color:orange;`;
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.div {
-  width: 300px;
-  height: 300px;
-  // background: url('@/assets/images/Stock2.png');
+.img-container {
+  background: rgb(255, 138, 138);
+  border-radius: 20px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
 }
 </style>
