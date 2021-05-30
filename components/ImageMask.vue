@@ -4,7 +4,11 @@
       class="img-container"
       :style="{ width: width + 'px', height: height + 'px' }"
     >
-      <img src="~/assets/images/Stock5.png" alt="" class="img" />
+      <img
+        :src="require(`~/assets/images/${imageName}.png`)"
+        alt=""
+        class="img"
+      />
     </div>
   </div>
 </template>
@@ -14,7 +18,7 @@ export default {
   props: ['width', 'height'],
   data() {
     return {
-      // imageName: require('~/assets/images/Stock5.png'),
+      imageName: 'Stock2',
     };
   },
 };
