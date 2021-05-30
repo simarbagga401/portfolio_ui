@@ -29,8 +29,8 @@
 <style scoped lang="scss">
 section {
   display: grid;
-  grid-template-columns: minmax(50px, 8vw) 92vw;
   grid-template-rows: 7vh 88vh 5vh;
+  grid-template-columns: minmax(50px, 8vw) 92vw;
   grid-template-areas:
     'nav nav nav'
     'aside1 content content'

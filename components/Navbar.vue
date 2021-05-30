@@ -46,8 +46,6 @@ export default {
 .nav {
   padding: 0px 20px;
   background: rgb(255, 173, 173);
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

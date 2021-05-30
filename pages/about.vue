@@ -5,7 +5,15 @@
 </template>
 
 <script>
-export default {};
+import { responsiveLayout } from '~/functions/responsiveLayout';
+export default {
+  layout: () => {
+    let windowWidth = window.innerWidth;
+    let answer = windowWidth < 720 ? 'mobile' : 'default';
+
+    return answer;
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

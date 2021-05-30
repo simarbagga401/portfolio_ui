@@ -1,13 +1,17 @@
 <template>
-  <div>content</div>
+  <div>contnet</div>
 </template>
 
 <script>
-import { responsiveLayout } from '~/functions/responsiveLayout';
+import {
+  responsiveLayout,
+  alertResponsiveLayout,
+} from '~/functions/responsiveLayout';
 
 export default {
-  beforeCreate() {
-    responsiveLayout();
+  layout: responsiveLayout(),
+  mounted() {
+    alertResponsiveLayout();
   },
 };
 </script>
