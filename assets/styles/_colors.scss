@@ -18,6 +18,7 @@ $active-orange:hsl(14,100%,75%);
 $active-green:hsl(155,100%,75%);
 $active-blue:hsl(155,100%,75%);
 
+// classes for dynamic backgrounds
 .background-orange{
   background:$primary-orange
 }
@@ -25,17 +26,32 @@ $active-blue:hsl(155,100%,75%);
   background:$primary-green
 }
 .background-blue{
-  background:$primary-blue
+  background:$primary-blue;
 }
 
+// classes for dynamic color (links etc...)
+$lighten-amount:10%;
+
 .color-orange{
-  color:$dark-orange
+  color:$dark-orange;
+
+  &:hover{
+    color:lighten($dark-orange,$lighten-amount)
+  }
 }
 .color-green{
-  color:$dark-green
+  color:$dark-green;
+
+  &:hover{
+    color:lighten($dark-green,$lighten-amount)
+  }
 }
 .color-blue{
-  color:$dark-blue
+  color:$dark-blue;
+
+  &:hover{
+    color:lighten($dark-blue,$lighten-amount)
+  }
 }
 
 

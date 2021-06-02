@@ -1,11 +1,11 @@
 <template>
-  <nav class="nav">
-    <NuxtLink class="logo" to="/">John Doe</NuxtLink>
-
+  <nav class="nav" :class="backgroundColor">
+    <NuxtLink class="logo" to="/" :class="color">John Doe</NuxtLink>
+    <button @click="clicked">click me</button>
     <section class="links">
       <ul>
         <li v-for="link in links" :key="link.name">
-          <NuxtLink :to="link.link">{{ link.name }}</NuxtLink>
+          <NuxtLink :to="link.link" :class="color">{{ link.name }}</NuxtLink>
         </li>
       </ul>
     </section>
@@ -19,7 +19,7 @@ export default {
       links: [
         {
           name: 'About',
-          link: '/about',
+          link: '/',
         },
         {
           name: 'Vlogs',
@@ -35,6 +35,31 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    backgroundColor() {
+      return {
+        'background-orange':
+          this.$nuxt.$route.path === '/' ||
+          this.$nuxt.$route.path.includes('/blog'),
+        'background-green': this.$nuxt.$route.path.includes('/vlogs'),
+        'background-blue': this.$nuxt.$route.path.includes('/photogallery'),
+      };
+    },
+    color() {
+      return {
+        'color-green':
+          this.$nuxt.$route.path === '/' ||
+          this.$nuxt.$route.path.includes('/blog'),
+        'color-blue': this.$nuxt.$route.path.includes('/vlogs'),
+        'color-orange': this.$nuxt.$route.path.includes('/photogallery'),
+      };
+    },
+  },
+  methods: {
+    clicked() {
+      console.log('hurray you just clicked me');
+    },
   },
 };
 </script>
@@ -63,15 +88,9 @@ export default {
   }
 
   a {
-    color: colors.$dark-green;
     font-size: 16px;
 
-    &:hover:not(.logo),
-    &:active:not(.logo) {
-      color: colors.$secondary-green;
-    }
-
-    &.nuxt-link-active:not(.logo) {
+    &.nuxt-link-exact-active:not(.logo) {
       border-bottom: 3px solid colors.$dark-green;
     }
   }

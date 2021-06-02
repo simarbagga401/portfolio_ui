@@ -32,6 +32,9 @@
 <style scoped lang="scss">
 @use '~assets/styles/colors';
 
+.red {
+  background: red;
+}
 section {
   display: grid;
   grid-template-rows: 7vh 88vh 5vh;
