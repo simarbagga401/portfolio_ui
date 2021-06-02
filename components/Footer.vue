@@ -1,11 +1,24 @@
 <template>
-  <footer class="footer">
-    <h3>John Doe</h3>
+  <footer class="footer" :class="dynamicBackgroundColor">
+    <h3 :class="dynamicColor">John Doe</h3>
   </footer>
 </template>
 
 <script>
-export default {};
+import {
+  dynamicBackgroundColorLogic,
+  dynamicColorLogic,
+} from '~/functions/dynamicColors';
+export default {
+  computed: {
+    dynamicBackgroundColor() {
+      return dynamicBackgroundColorLogic();
+    },
+    dynamicColor() {
+      return dynamicColorLogic();
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

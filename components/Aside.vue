@@ -1,5 +1,5 @@
 <template>
-  <aside>
+  <aside :class="dynamicBackgroundColor">
     <ul v-for="link in links" :key="link.name">
       <li>
         <a :href="link.link" :class="link.name" class="link">
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { dynamicBackgroundColorLogic } from '~/functions/dynamicColors';
+
 export default {
   data() {
     return {
@@ -33,6 +35,11 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    dynamicBackgroundColor() {
+      return dynamicBackgroundColorLogic();
+    },
   },
 };
 </script>

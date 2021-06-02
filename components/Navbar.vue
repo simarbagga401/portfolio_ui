@@ -51,11 +51,6 @@ export default {
       return dynamicColorLogic();
     },
   },
-  methods: {
-    clicked() {
-      console.log('hurray you just clicked me');
-    },
-  },
 };
 </script>
 

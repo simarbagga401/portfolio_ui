@@ -22,10 +22,7 @@
 
     <Nuxt class="content" />
 
-    <!-- <Footer class="footer" /> -->
-    <footer class="footer background-orange">
-      {{ routeInfo }}
-    </footer>
+    <Footer class="footer" />
   </section>
 </template>
 
@@ -72,11 +69,5 @@ export default {
       height: 20,
     };
   },
-  computed: {
-    routeInfo() {
-      return this.$nuxt.$route.path;
-    },
-  },
-  methods: {},
 };
 </script>
