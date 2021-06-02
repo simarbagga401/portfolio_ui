@@ -13,7 +13,6 @@ export default {};
 @use '~/assets/styles/colors.scss';
 
 .footer {
-  background: rgb(255, 138, 138);
   padding: 0px 30px;
 
   h3 {

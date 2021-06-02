@@ -17,3 +17,29 @@ $secondary-blue:hsl(191,100%,67%);
 $active-orange:hsl(14,100%,75%);
 $active-green:hsl(155,100%,75%);
 $active-blue:hsl(155,100%,75%);
+
+.background-orange{
+  background:$primary-orange
+}
+.background-green{
+  background:$primary-green
+}
+.background-blue{
+  background:$primary-blue
+}
+
+.color-orange{
+  color:$dark-orange
+}
+.color-green{
+  color:$dark-green
+}
+.color-blue{
+  color:$dark-blue
+}
+
+
+
+
+
+

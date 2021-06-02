@@ -22,11 +22,16 @@
 
     <Nuxt class="content" />
 
-    <Footer class="footer" />
+    <!-- <Footer class="footer" /> -->
+    <footer class="footer background-orange">
+      {{ routeInfo }}
+    </footer>
   </section>
 </template>
 
 <style scoped lang="scss">
+@use '~assets/styles/colors';
+
 section {
   display: grid;
   grid-template-rows: 7vh 88vh 5vh;
@@ -42,7 +47,7 @@ section {
   }
   .content {
     grid-area: content;
-    background: rgb(207, 255, 221);
+    // background: rgb(207, 255, 221);
   }
   .aside1 {
     grid-area: aside1;
@@ -64,5 +69,11 @@ export default {
       height: 20,
     };
   },
+  computed: {
+    routeInfo() {
+      return this.$nuxt.$route.path;
+    },
+  },
+  methods: {},
 };
 </script>

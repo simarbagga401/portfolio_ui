@@ -45,7 +45,6 @@ export default {
 
 .nav {
   padding: 0px 20px;
-  background: rgb(255, 173, 173);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,7 +52,6 @@ export default {
 
   .links {
     width: 80%;
-    background: rgb(216, 216, 216);
   }
 
   ul {

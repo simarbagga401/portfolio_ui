@@ -18,7 +18,7 @@ export function alertResponsiveLayout() {
 }
 
 export function responsiveLayout() {
-  let answer = windowWidth < 720 ? 'mobile' : 'default';
+  let layout = windowWidth < 720 ? 'mobile' : 'default';
 
-  return answer;
+  return layout;
 }

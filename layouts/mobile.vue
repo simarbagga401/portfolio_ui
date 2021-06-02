@@ -58,9 +58,11 @@
 
 <style scoped lang="scss">
 section {
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  grid-template-columns: minmax(60px, 10vw) 90vw;
-  grid-template-rows: 10vw 80vw 10vw;
+  grid-template-columns: minmax(40px, 15vw) 85vw;
+  grid-template-rows: 10vh 80vh 10vh;
   grid-template-areas:
     'header header'
     'aside content'
