@@ -4,19 +4,35 @@
 
     <Aside class="aside1">
       <template v-slot:instagram>
-        <IconsInstagram :color="color" :width="width" :height="height" />
+        <IconsInstagram
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:tiktok>
-        <IconsTiktok :color="color" :width="width" :height="height" />
+        <IconsTiktok
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:youtube>
-        <IconsYoutube :color="color" :width="width" :height="height" />
+        <IconsYoutube
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:twitter>
-        <IconsTwitter :color="color" :width="width" :height="height" />
+        <IconsTwitter
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
     </Aside>
 
@@ -61,13 +77,19 @@ section {
 </style>
 
 <script>
+import { dynamicIconColorLogic } from '~/functions/dynamicColors';
 export default {
   data() {
     return {
-      color: 'black',
       width: 20,
       height: 20,
     };
+  },
+  methods: {},
+  computed: {
+    dynamicIconColor() {
+      return dynamicIconColorLogic()[0];
+    },
   },
 };
 </script>

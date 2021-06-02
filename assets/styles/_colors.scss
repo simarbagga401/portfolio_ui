@@ -35,21 +35,24 @@ $lighten-amount:10%;
 .color-orange{
   color:$dark-orange;
 
-  &:hover{
+  &:hover,
+  &:active{
     color:lighten($dark-orange,$lighten-amount)
   }
 }
 .color-green{
   color:$dark-green;
 
-  &:hover{
+  &:hover,
+  &:active{
     color:lighten($dark-green,$lighten-amount)
   }
 }
 .color-blue{
   color:$dark-blue;
 
-  &:hover{
+  &:hover,
+  &:active{
     color:lighten($dark-blue,$lighten-amount)
   }
 }

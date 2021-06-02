@@ -1,12 +1,12 @@
 <template>
   <div>
-    <nav>
+    <nav :style="{ background: dynamicBackgroundColor }">
       <ul>
         <template v-for="link in links">
           <NuxtLink :to="link.link" class="nuxt-link" :key="link.name">
-            <li>
+            <li :style="{ background: dynamicBackgroundColor }">
               <slot :name="link.name" />
-              <p>{{ link.displayName }}</p>
+              <p :class="dynamicColor">{{ link.displayName }}</p>
             </li>
           </NuxtLink>
         </template>
@@ -16,6 +16,10 @@
 </template>
 
 <script>
+import {
+  dynamicColorLogic,
+  dynamicIconColorLogic,
+} from '~/functions/dynamicColors';
 export default {
   props: ['icon'],
   data() {
@@ -24,7 +28,7 @@ export default {
         {
           displayName: 'About',
           name: 'about',
-          link: '/about',
+          link: '/',
         },
         {
           displayName: 'Vlogs',
@@ -44,6 +48,15 @@ export default {
       ],
     };
   },
+  computed: {
+    dynamicColor() {
+      return dynamicColorLogic();
+    },
+    dynamicBackgroundColor() {
+      // use dynamicIconColorLogic instead of dynamicBackgroundColorLogic
+      return dynamicIconColorLogic()[1];
+    },
+  },
 };
 </script>
 
@@ -51,8 +64,6 @@ export default {
 @use '~/assets/styles/colors';
 
 nav {
-  background: colors.$secondary-orange;
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -78,7 +89,6 @@ nav {
     li {
       width: 100%;
       height: 100%;
-      background: colors.$secondary-orange;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -87,7 +97,7 @@ nav {
       border-radius: 7px 7px 0 0;
     }
 
-    &.nuxt-link-active {
+    &.nuxt-link-exact-active {
       li {
         background: colors.$active-orange;
       }

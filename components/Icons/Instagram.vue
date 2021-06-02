@@ -18,7 +18,7 @@
 <script>
 export default {
   props: ['color', 'width', 'height'],
-}
+};
 </script>
 
 <style lang="scss" scoped></style>

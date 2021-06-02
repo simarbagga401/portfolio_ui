@@ -8,19 +8,35 @@
 
     <MobileAside class="aside">
       <template v-slot:instagram>
-        <IconsInstagram :color="color" :width="width" :height="height" />
+        <IconsInstagram
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:tiktok>
-        <IconsTiktok :color="color" :width="width" :height="height" />
+        <IconsTiktok
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:youtube>
-        <IconsYoutube :color="color" :width="width" :height="height" />
+        <IconsYoutube
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:twitter>
-        <IconsTwitter :color="color" :width="width" :height="height" />
+        <IconsTwitter
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
     </MobileAside>
 
@@ -28,28 +44,36 @@
 
     <MobileNav class="nav">
       <template v-slot:about>
-        <IconsTwitter :color="color" :width="width" :height="height" />
+        <IconsTwitter
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:vlogs>
-        <IconsYoutube :color="color" :width="width" :height="height" />
+        <IconsYoutube
+          :color="dynamicIconColor"
+          :width="width"
+          :height="height"
+        />
       </template>
 
       <template v-slot:blogs>
         <IconsBlog
-          :color="color"
+          :color="dynamicIconColor"
           :width="width"
           :height="height"
-          :backgroundColor="backgroundColor"
+          :backgroundColor="dynamicIconBackgroundColor"
         />
       </template>
 
       <template v-slot:photoGallery>
         <IconsPhotoGallery
-          :color="color"
+          :color="dynamicIconColor"
           :width="width"
           :height="height"
-          :backgroundColor="backgroundColor"
+          :backgroundColor="dynamicIconBackgroundColor"
         />
       </template>
     </MobileNav>
@@ -58,11 +82,9 @@
 
 <style scoped lang="scss">
 section {
-  width: 100vw;
-  height: 100vh;
   display: grid;
-  grid-template-columns: minmax(40px, 15vw) 85vw;
-  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-columns: minmax(45px, 15vw) 85vw;
+  grid-template-rows: 5vh 85vh 10vh;
   grid-template-areas:
     'header header'
     'aside content'
@@ -81,24 +103,32 @@ section {
 
 .aside {
   grid-area: aside;
-  background: rgb(244, 221, 255);
+  // background: rgb(244, 221, 255);
 }
 
 .nav {
   grid-area: nav;
-  background: rgb(255, 211, 211);
+  z-index: 10;
+  // background: rgb(255, 211, 211);
 }
 </style>
 
 <script>
+import { dynamicIconColorLogic } from '~/functions/dynamicColors';
 export default {
   data() {
     return {
-      color: '#00311e',
       width: 22,
       height: 22,
-      backgroundColor: '#ff7e57',
     };
+  },
+  computed: {
+    dynamicIconColor() {
+      return dynamicIconColorLogic()[0];
+    },
+    dynamicIconBackgroundColor() {
+      return dynamicIconColorLogic()[1];
+    },
   },
 };
 </script>

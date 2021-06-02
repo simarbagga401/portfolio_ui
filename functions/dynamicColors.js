@@ -15,3 +15,17 @@ export function dynamicColorLogic() {
     'color-orange': $nuxt.$route.path.includes('/photogallery'),
   };
 }
+
+export function dynamicIconColorLogic() {
+  // returns color and background value for icons
+
+  if ($nuxt.$route.path === '/' || $nuxt.$route.path.includes('/blog')) {
+    return ['#00331e', '#ff7e57'];
+  } else if ($nuxt.$route.path.includes('/vlogs')) {
+    return ['#002a33', '#57ffb9'];
+  } else if ($nuxt.$route.path.includes('/photogallery')) {
+    return ['#330c00', '#57e0ff'];
+  } else {
+    return ['#000000', '#ff7e57'];
+  }
+}
