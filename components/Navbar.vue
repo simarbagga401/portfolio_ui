@@ -1,11 +1,13 @@
 <template>
-  <nav class="nav" :class="backgroundColor">
-    <NuxtLink class="logo" to="/" :class="color">John Doe</NuxtLink>
-    <button @click="clicked">click me</button>
+  <nav class="nav" :class="dynamicBackgroundColor">
+    <NuxtLink class="logo" to="/" :class="dynamicColor">John Doe</NuxtLink>
+
     <section class="links">
       <ul>
         <li v-for="link in links" :key="link.name">
-          <NuxtLink :to="link.link" :class="color">{{ link.name }}</NuxtLink>
+          <NuxtLink :to="link.link" :class="dynamicColor">{{
+            link.name
+          }}</NuxtLink>
         </li>
       </ul>
     </section>
@@ -13,6 +15,11 @@
 </template>
 
 <script>
+import {
+  dynamicBackgroundColorLogic,
+  dynamicColorLogic,
+} from '~/functions/dynamicColors';
+
 export default {
   data() {
     return {
@@ -37,23 +44,11 @@ export default {
     };
   },
   computed: {
-    backgroundColor() {
-      return {
-        'background-orange':
-          this.$nuxt.$route.path === '/' ||
-          this.$nuxt.$route.path.includes('/blog'),
-        'background-green': this.$nuxt.$route.path.includes('/vlogs'),
-        'background-blue': this.$nuxt.$route.path.includes('/photogallery'),
-      };
+    dynamicBackgroundColor() {
+      return dynamicBackgroundColorLogic();
     },
-    color() {
-      return {
-        'color-green':
-          this.$nuxt.$route.path === '/' ||
-          this.$nuxt.$route.path.includes('/blog'),
-        'color-blue': this.$nuxt.$route.path.includes('/vlogs'),
-        'color-orange': this.$nuxt.$route.path.includes('/photogallery'),
-      };
+    dynamicColor() {
+      return dynamicColorLogic();
     },
   },
   methods: {
