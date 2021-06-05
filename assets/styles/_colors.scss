@@ -19,6 +19,9 @@ $active-green:hsl(155,100%,75%);
 $active-blue:hsl(155,100%,75%);
 
 // classes for dynamic backgrounds
+.background-blue,.background-green,.background-orange{
+  transition:.5s ease-in-out;
+}
 .background-orange{
   background:$primary-orange
 }

@@ -1,7 +1,8 @@
 <template>
   <section class="landing-page">
-    <!-- <div class="decoration-bar" /> -->
-    <!-- <ImageMask imageName="Stock2" width="400" height="600" /> -->
+    <div class="decoration-bar1" />
+    <div class="decoration-bar2" />
+    <!-- decoration bars -->
   </section>
 </template>
 
@@ -23,25 +24,26 @@ export default {
 @use '~/assets/styles/colors';
 
 .landing-page {
+  width: 100%;
+  height: 100%;
+  background: colors.$primary-orange;
+  // background: rgb(221, 123, 123);
   position: relative;
 }
-
-// .decoration-bar {
-//   width: 168px;
-//   height: 12px;
-//   background: colors.$light-black-transparent;
-//   position: absolute;
-//   top: 40px;
-//   left: 120px;
-
-//   &:before {
-//     content: '';
-//     position: absolute;
-//     bottom: -500px;
-//     left: 20px;
-//     height: 363px;
-//     width: 12px;
-//     background: colors.$light-black-transparent;
-//   }
-// }
+.decoration-bar1 {
+  width: 168px;
+  height: 12px;
+  background: colors.$light-black-transparent;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.decoration-bar2 {
+  width: 12px;
+  height: 363px;
+  background: colors.$light-black-transparent;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
 </style>

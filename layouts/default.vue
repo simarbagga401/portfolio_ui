@@ -36,7 +36,9 @@
       </template>
     </Aside>
 
-    <Nuxt class="content" />
+    <div class="content">
+      <Nuxt />
+    </div>
 
     <Footer class="footer" />
   </section>
@@ -44,14 +46,14 @@
 
 <style scoped lang="scss">
 @use '~assets/styles/colors';
+@use '~assets/styles/typography';
 
-.red {
-  background: red;
-}
 section {
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  grid-template-rows: 7vh 88vh 5vh;
-  grid-template-columns: minmax(50px, 8vw) 92vw;
+  grid-template-rows: 7% 88% 5%;
+  grid-template-columns: minmax(50px, 8%) 92%;
   grid-template-areas:
     'nav nav nav'
     'aside1 content content'
@@ -63,7 +65,8 @@ section {
   }
   .content {
     grid-area: content;
-    // background: rgb(207, 255, 221);
+    background: colors.$primary-black;
+    z-index: -2;
   }
   .aside1 {
     grid-area: aside1;
@@ -73,6 +76,12 @@ section {
     grid-area: footer;
     // background: rgb(255, 246, 218);
   }
+}
+
+h1 {
+  font-family: typography.$serif;
+  color: white;
+  font-size: 40px;
 }
 </style>
 

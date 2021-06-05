@@ -81,7 +81,21 @@ export default {
     font-size: 16px;
 
     &.nuxt-link-exact-active:not(.logo) {
-      border-bottom: 3px solid colors.$dark-green;
+      border-bottom: 3px solid colors.$primary-black;
+      animation: underlineAnimation 0.5s ease-in-out;
+    }
+    @keyframes underlineAnimation {
+      0% {
+        padding-bottom: 10px;
+        opacity: 0;
+        border-bottom: 1px solid colors.$light-black;
+      }
+
+      100% {
+        opacity: 1;
+        padding-bottom: 0px;
+        border-bottom: 3px solid colors.$light-black;
+      }
     }
   }
 

@@ -17,3 +17,13 @@
   list-style:none;
 }
 
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.7s ease-in-out;
+}
+.page-enter{
+  transform: translateY(100%);
+}
+.page-leave-to{
+  transform:translateX(-100%);
+}
