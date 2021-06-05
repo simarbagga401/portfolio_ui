@@ -51,6 +51,7 @@
 section {
   width: 100vw;
   height: 100vh;
+  // overflow: hidden; // set in production for no overflow
   display: grid;
   grid-template-rows: 7% 88% 5%;
   grid-template-columns: minmax(50px, 8%) 92%;
@@ -70,7 +71,7 @@ section {
   }
   .aside1 {
     grid-area: aside1;
-    // background: rgb(244, 221, 255);
+    background: rgb(244, 221, 255);
   }
   .footer {
     grid-area: footer;

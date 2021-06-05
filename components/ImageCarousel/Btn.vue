@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="btn">
-      <span v-if="btnActive" class="btn-active"></span>
+      <span v-if="active" class="btn-active"></span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['btnActive'],
+  props: ['active'],
 };
 </script>
 

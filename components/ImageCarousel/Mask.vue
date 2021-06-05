@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'ImageCarouselImageMask',
   props: ['width', 'height', 'imageName', 'active'],
   computed: {
     isActive() {

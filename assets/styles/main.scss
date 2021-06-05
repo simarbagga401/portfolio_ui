@@ -1,4 +1,5 @@
 @use './typography';
+@use './colors';
 
 *,
 *::after,
@@ -15,6 +16,7 @@
   -webkit-font-smoothing: antialiased;
   font-family:typography.$sans;
   list-style:none;
+  color:colors.$primary-black;
 }
 
 .page-enter-active,

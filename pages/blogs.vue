@@ -8,8 +8,10 @@
         background-color: lightblue;
         margin: 10px;
       "
+      v-bind:click="somefunction()"
     ></div>
-    <h1>blogs</h1>
+    <h1 v-if="displayh">displayh</h1>
+    <h1>{{ compute }}</h1>
   </section>
 </template>
 
@@ -23,6 +25,21 @@ export default {
   layout: responsiveLayout(),
   mounted() {
     alertResponsiveLayout();
+  },
+  data() {
+    return {
+      displayh: false,
+    };
+  },
+  methods: {
+    somefunction() {
+      console.log('some function');
+    },
+  },
+  computed: {
+    compute() {
+      return 'hahahahh';
+    },
   },
 };
 </script>
