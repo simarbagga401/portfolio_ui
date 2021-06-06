@@ -12,27 +12,31 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem ante,
           sollicitudin et elementum quis, ultrices vitae dolor.
         </p>
-        <button @click="click">click me</button>
       </div>
     </div>
+
     <div class="image-container">
-      <template v-for="imageName in imageNames">
+      <template v-for="(imageName, i) in imageNames">
         <ImageCarouselMask
           :key="imageName"
           :width="imageWidth"
           :height="imageHeight"
           :imageName="imageName"
+          :active="isCarouselActiveIndex(i)"
         />
       </template>
     </div>
-    <div class="carousel" @click="changeActiveIndex()">
-      <template v-for="(image, i) in imageNames">
+
+    <div class="carousel">
+      <template v-for="(imageName, i) in imageNames">
         <ImageCarouselBtn
-          :active="imageCarouselActive(i)"
           :key="i"
-          @click="changeActiveIndex(i)"
+          :active="isCarouselActiveIndex(i)"
+          @click.native="changeCarouselActiveIndex(i)"
         />
       </template>
+
+      <h1>{{ carouselActiveIndex }}</h1>
     </div>
   </section>
 </template>
@@ -53,25 +57,15 @@ export default {
       imageWidth: 200,
       imageHeight: 200,
       imageNames: ['MaskImage1.png', 'MaskImage2.png', 'MaskImage3.png'],
-      activeIndex: 0,
+      carouselActiveIndex: 0,
     };
   },
   methods: {
-    imageCarouselActive(index) {
-      return index === this.activeIndex ? true : false;
+    isCarouselActiveIndex(i) {
+      return i === this.carouselActiveIndex ? true : false;
     },
-    changeActiveIndex(index) {
-      this.activeIndex = index;
-      console.log('changeActiveIndex ran');
-    },
-    click() {
-      console.log('som');
-    },
-  },
-  watch: {
-    activeIndex(val) {
-      imageCarouselActive(val);
-      console.log(val);
+    changeCarouselActiveIndex(i) {
+      this.carouselActiveIndex = i;
     },
   },
 };

@@ -24,6 +24,7 @@ $btn-width: 30px;
   border-radius: 50%;
   display: grid;
   place-items: center;
+  margin: 5px 0px;
 }
 .btn-active {
   border-radius: 50%;

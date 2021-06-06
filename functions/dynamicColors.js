@@ -1,31 +1,31 @@
+import { isCurrentRoute } from './isCurrentRoute';
+
 export function dynamicBackgroundColorLogic() {
   return {
-    'background-orange':
-      $nuxt.$route.path === '/' || $nuxt.$route.path.includes('/blog'),
-    'background-green': $nuxt.$route.path.includes('/vlogs'),
-    'background-blue': $nuxt.$route.path.includes('/photogallery'),
+    'background-orange': isCurrentRoute('about') || isCurrentRoute('blogs'),
+    'background-green': isCurrentRoute('vlogs'),
+    'background-blue': isCurrentRoute('photogallery'),
   };
 }
 
 export function dynamicColorLogic() {
   return {
-    'color-green':
-      $nuxt.$route.path === '/' || $nuxt.$route.path.includes('/blog'),
-    'color-blue': $nuxt.$route.path.includes('/vlogs'),
-    'color-orange': $nuxt.$route.path.includes('/photogallery'),
+    'color-green': isCurrentRoute('about') || isCurrentRoute('blogs'),
+    'color-blue': isCurrentRoute('vlogs'),
+    'color-orange': isCurrentRoute('photogallery'),
   };
 }
 
 export function dynamicIconColorLogic() {
   // returns color and background value for icons
 
-  if ($nuxt.$route.path === '/' || $nuxt.$route.path.includes('/blog')) {
+  if (isCurrentRoute('about') || isCurrentRoute('blogs')) {
     return ['#00331e', '#ff7e57'];
-  } else if ($nuxt.$route.path.includes('/vlogs')) {
+  } else if (isCurrentRoute('vlogs')) {
     return ['#002a33', '#57ffb9'];
-  } else if ($nuxt.$route.path.includes('/photogallery')) {
+  } else if (isCurrentRoute('photogallery')) {
     return ['#330c00', '#57e0ff'];
   } else {
-    return ['#000000', '#ff7e57'];
+    return ['#330c00', '#57e0ff'];
   }
 }

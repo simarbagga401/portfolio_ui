@@ -70,7 +70,7 @@ section {
   }
   .aside1 {
     grid-area: aside1;
-    background: rgb(244, 221, 255);
+    // background: rgb(244, 221, 255);
     z-index: 10;
   }
   .footer {
