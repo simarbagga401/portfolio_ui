@@ -104,11 +104,11 @@ section {
 .aside {
   grid-area: aside;
   // background: rgb(244, 221, 255);
+  z-index: 10;
 }
 
 .nav {
   grid-area: nav;
-  z-index: 10;
   // background: rgb(255, 211, 211);
 }
 </style>

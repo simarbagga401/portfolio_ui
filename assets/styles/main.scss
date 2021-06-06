@@ -19,10 +19,14 @@
   color:colors.$primary-black;
 }
 
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.7s ease-in-out;
+.page-enter-active {
+  transition: all 0.7s ease-in;
 }
+
+.page-leave-to {
+  transition: all 0.7s ease-out;
+}
+
 .page-enter{
   transform: translateY(100%);
 }

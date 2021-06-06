@@ -54,7 +54,7 @@ section {
   // overflow: hidden; // set in production for no overflow
   display: grid;
   grid-template-rows: 7% 88% 5%;
-  grid-template-columns: minmax(50px, 8%) 92%;
+  grid-template-columns: 8% 92%;
   grid-template-areas:
     'nav nav nav'
     'aside1 content content'
@@ -67,15 +67,16 @@ section {
   .content {
     grid-area: content;
     background: colors.$primary-black;
-    z-index: -2;
   }
   .aside1 {
     grid-area: aside1;
     background: rgb(244, 221, 255);
+    z-index: 10;
   }
   .footer {
     grid-area: footer;
     // background: rgb(255, 246, 218);
+    z-index: 10;
   }
 }
 

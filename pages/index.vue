@@ -6,12 +6,13 @@
 
     <div class="text-container">
       <div class="text">
-        <h2 @click="some">Hi There!</h2>
+        <h2>Hi There!</h2>
         <h1>It's John<br />Doe.</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem ante,
           sollicitudin et elementum quis, ultrices vitae dolor.
         </p>
+        <button @click="click">click me</button>
       </div>
     </div>
     <div class="image-container">
@@ -63,7 +64,7 @@ export default {
       this.activeIndex = index;
       console.log('changeActiveIndex ran');
     },
-    some() {
+    click() {
       console.log('som');
     },
   },

@@ -10,6 +10,9 @@
         margin: 10px;
       "
     ></div>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique fuga
+    soluta non sint cum asperiores illo vitae corrupti mollitia iure veniam, ex
+    placeat id ab aliquam, quia necessitatibus! Accusamus, enim.
   </section>
 </template>
 
