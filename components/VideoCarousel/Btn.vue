@@ -33,7 +33,12 @@
 
 <script>
 export default {
-  props: ['color', 'direction'],
+  props: ['direction'],
+  data() {
+    return {
+      color: '#ff7e57',
+    };
+  },
 };
 </script>
 

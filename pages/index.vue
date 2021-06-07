@@ -7,7 +7,13 @@
     <div class="text-container">
       <div class="text">
         <h2>Hi There!</h2>
-        <h1>It's John<br />Doe.</h1>
+        <h1>
+          I Am <br />
+          <vue-typer
+            :text="['John Doe', 'Youtuber', 'Vlogger']"
+            class="dynamic-heading"
+          />
+        </h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem ante,
           sollicitudin et elementum quis, ultrices vitae dolor.
@@ -52,9 +58,6 @@ import {
 
 export default {
   layout: responsiveLayout(),
-  mounted() {
-    alertResponsiveLayout();
-  },
   data() {
     return {
       imageWidth: 200,
@@ -80,6 +83,7 @@ export default {
     setInterval(() => {
       this.incrementCarouselActiveIndex();
     }, 4000);
+    alertResponsiveLayout();
   },
 };
 </script>
@@ -124,6 +128,19 @@ export default {
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
+  animation: fade 0.5s ease-in;
+
+  @keyframes fade {
+    0% {
+      transform: translateY(-20px);
+      // opacity: 0.3;
+    }
+
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 
   @media (max-width: 950px) {
     align-items: center;
@@ -148,7 +165,8 @@ export default {
       color: colors.$dark-green;
     }
 
-    h1 {
+    h1,
+    .dynamic-heading {
       // background: rgb(226, 226, 226);
       text-decoration: underline;
       font-family: typography.$serif;
@@ -158,6 +176,10 @@ export default {
       line-height: 90px;
       margin-top: -10px;
       margin-bottom: 15px;
+
+      span {
+        font-family: typography.$serif;
+      }
     }
   }
 }
