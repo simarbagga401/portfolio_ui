@@ -45,6 +45,7 @@
 </template>
 
 <style scoped lang="scss">
+@use '~assets/styles/classes';
 @use '~assets/styles/colors';
 @use '~assets/styles/typography';
 

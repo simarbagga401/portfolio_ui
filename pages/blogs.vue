@@ -1,5 +1,5 @@
 <template>
-  <section class="blogs-page">
+  <section class="blogs-page overflow">
     <div
       style="
         width: 200px;
@@ -47,11 +47,5 @@ export default {
   width: 100%;
   height: 100%;
   background: colors.$primary-orange;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 </style>

@@ -57,6 +57,7 @@ export default {
 <style lang="scss" scoped>
 @use '~/assets/styles/typography.scss';
 @use '~/assets/styles/colors.scss';
+@use '~/assets/styles/classes.scss';
 
 .nav {
   padding: 0px 20px;

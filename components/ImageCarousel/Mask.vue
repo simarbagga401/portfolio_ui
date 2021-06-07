@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div class="img-container" :class="{ active: active }">
-      <h1>{{ active }}</h1>
-      <img
-        :src="require(`~/assets/images/${imageName}`)"
-        alt="image"
-        class="img"
-      />
-    </div>
+  <!-- <div> -->
+  <div class="img-container" :class="{ active: active }">
+    <h1>{{ active }}</h1>
+    <img
+      :src="require(`~/assets/images/${imageName}`)"
+      alt="image"
+      class="img"
+    />
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -32,8 +32,20 @@ export default {
 
 <style lang="scss" scoped>
 .img-container {
-  max-width: 270px;
-  max-height: 270px;
+  width: 50%;
+  height: 50%;
+  transition: all 0.5s ease-in-out;
+  background: rgb(117, 117, 117);
+  margin: 0px;
+  transform: translateX(100px);
+  padding: 30px;
+
+  &.active {
+    width: 60%;
+    height: 60%;
+    transform: translateX(-100px);
+  }
+
   img {
     width: 100%;
     height: 100%;

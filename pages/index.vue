@@ -18,6 +18,7 @@
     <div class="image-container">
       <template v-for="(imageName, i) in imageNames">
         <ImageCarouselMask
+          :class="`image-${i}`"
           :key="imageName"
           :width="imageWidth"
           :height="imageHeight"
@@ -74,6 +75,7 @@ export default {
 <style lang="scss" scoped>
 @use '~/assets/styles/colors';
 @use '~/assets/styles/typography';
+// @use '~/assets/styles/classes';
 
 .landing-page {
   width: 100%;
@@ -82,9 +84,10 @@ export default {
   // background: rgb(221, 123, 123);
   position: relative;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 0.1fr;
+  grid-template-columns: 1fr 1fr 0.1fr;
   grid-template-rows: 1fr;
   grid-template-areas: 'text-container image-container carousel';
+  overflow: hidden;
 }
 .decoration-bar1 {
   width: 168px;
@@ -145,6 +148,10 @@ export default {
 .image-container {
   background: rgb(123, 132, 255);
   grid-area: image-container;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .carousel {
@@ -153,5 +160,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 </style>

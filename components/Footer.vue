@@ -24,6 +24,7 @@ export default {
 <style lang="scss" scoped>
 @use '~/assets/styles/typography.scss';
 @use '~/assets/styles/colors.scss';
+@use '~/assets/styles/classes.scss';
 
 .footer {
   padding: 0px 30px;

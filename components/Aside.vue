@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '~/assets/styles/classes.scss';
+
 aside {
   display: flex;
   flex-direction: column;

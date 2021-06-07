@@ -1,0 +1,56 @@
+@use './colors';
+
+// classes for dynamic backgrounds
+.background-blue,
+.background-green,
+.background-orange {
+  transition: 0.5s ease-in-out;
+}
+.background-orange {
+  background: colors.$primary-orange;
+}
+.background-green {
+  background: colors.$primary-green;
+}
+.background-blue {
+  background: colors.$primary-blue;
+}
+
+// classes for dynamic color (links etc...)
+$lighten-amount: 10%;
+
+.color-orange {
+  color: colors.$dark-orange;
+
+  &:hover,
+  &:active {
+    color: lighten(colors.$dark-orange, $lighten-amount);
+  }
+}
+.color-green {
+  color: colors.$dark-green;
+
+  &:hover,
+  &:active {
+    color: lighten(colors.$dark-green, $lighten-amount);
+  }
+}
+.color-blue {
+  color: colors.$dark-blue;
+
+  &:hover,
+  &:active {
+    color: lighten(colors.$dark-blue, $lighten-amount);
+  }
+}
+
+//overflow class
+
+.overflow {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
