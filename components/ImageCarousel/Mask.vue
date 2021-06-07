@@ -1,7 +1,6 @@
 <template>
   <!-- <div> -->
   <div class="img-container" :class="{ active: active }">
-    <h1>{{ active }}</h1>
     <img
       :src="require(`~/assets/images/${imageName}`)"
       alt="image"
@@ -32,18 +31,20 @@ export default {
 
 <style lang="scss" scoped>
 .img-container {
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   transition: all 0.5s ease-in-out;
-  background: rgb(117, 117, 117);
   margin: 0px;
-  transform: translateX(100px);
   padding: 30px;
 
   &.active {
-    width: 60%;
-    height: 60%;
-    transform: translateX(-100px);
+    width: 50%;
+    height: 50%;
+
+    @media (max-width: 950px) {
+      width: 40%;
+      height: 40%;
+    }
   }
 
   img {

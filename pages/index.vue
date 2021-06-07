@@ -16,16 +16,20 @@
     </div>
 
     <div class="image-container">
-      <template v-for="(imageName, i) in imageNames">
-        <ImageCarouselMask
-          :class="`image-${i}`"
-          :key="imageName"
-          :width="imageWidth"
-          :height="imageHeight"
-          :imageName="imageName"
-          :active="isCarouselActiveIndex(i)"
-        />
-      </template>
+      <div class="disc-wrapper">
+        <div class="disc" :class="`image-${carouselActiveIndex}`">
+          <template v-for="(imageName, i) in imageNames">
+            <ImageCarouselMask
+              :class="`image-${i}`"
+              :key="imageName"
+              :width="imageWidth"
+              :height="imageHeight"
+              :imageName="imageName"
+              :active="isCarouselActiveIndex(i)"
+            />
+          </template>
+        </div>
+      </div>
     </div>
 
     <div class="carousel">
@@ -36,8 +40,6 @@
           @click.native="changeCarouselActiveIndex(i)"
         />
       </template>
-
-      <h1>{{ carouselActiveIndex }}</h1>
     </div>
   </section>
 </template>
@@ -68,6 +70,16 @@ export default {
     changeCarouselActiveIndex(i) {
       this.carouselActiveIndex = i;
     },
+    incrementCarouselActiveIndex() {
+      this.carouselActiveIndex === 2
+        ? (this.carouselActiveIndex = 0)
+        : this.carouselActiveIndex++;
+    },
+  },
+  mounted() {
+    setInterval(() => {
+      this.incrementCarouselActiveIndex();
+    }, 4000);
   },
 };
 </script>
@@ -106,12 +118,16 @@ export default {
   left: 10px;
 }
 .text-container {
-  background: rgb(229, 123, 255);
+  // background: rgb(229, 123, 255);
   grid-area: text-container;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+
+  @media (max-width: 950px) {
+    align-items: center;
+  }
 
   .text {
     width: 70%;
@@ -146,16 +162,74 @@ export default {
   }
 }
 .image-container {
-  background: rgb(123, 132, 255);
+  // background: rgb(123, 132, 255);
   grid-area: image-container;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+
+  .disc-wrapper {
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    // background: rgb(255, 96, 96);
+    transform: translateX(300px);
+  }
+
+  .disc {
+    // background: rgb(255, 113, 142);
+    width: 1000px;
+    height: 1000px;
+    position: relative;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    // right: -400px;
+    // top: -100px;
+
+    &.image-0 {
+      transform: rotateZ(-120deg);
+
+      .img-container {
+        transform: rotateZ(120deg);
+      }
+    }
+    &.image-1 {
+      transform: rotateZ(0deg);
+
+      .img-container {
+        transform: rotateZ(0deg);
+      }
+    }
+    &.image-2 {
+      transform: rotateZ(120deg);
+
+      .img-container {
+        transform: rotateZ(-120deg);
+      }
+    }
+
+    .image-0 {
+      position: absolute;
+      top: 0;
+      left: 40%;
+    }
+
+    .image-1 {
+      position: absolute;
+      top: 30%;
+      left: 0;
+    }
+    .image-2 {
+      position: absolute;
+      bottom: 0;
+      left: 40%;
+    }
+  }
 }
 
 .carousel {
-  background: rgb(241, 241, 241);
+  // background: rgb(241, 241, 241);
   display: flex;
   flex-direction: column;
   justify-content: center;

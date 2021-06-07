@@ -4,7 +4,7 @@ const windowWidth =
   document.body.clientWidth;
 
 export function alertResponsiveLayout() {
-  if (windowWidth <= 720) {
+  if (windowWidth <= 800) {
     console.log(
       '%c To See Desktop Site Refresh After Setting Window Width Above 800',
       'color:black;background:orange'
@@ -18,7 +18,7 @@ export function alertResponsiveLayout() {
 }
 
 export function responsiveLayout() {
-  let layout = windowWidth < 720 ? 'mobile' : 'default';
+  let layout = windowWidth < 800 ? 'mobile' : 'default';
 
   return layout;
 }
