@@ -10,7 +10,7 @@
         <h1>
           I Am <br />
           <vue-typer
-            :text="['John Doe', 'Youtuber', 'Vlogger']"
+            :text="['John Doe', 'Youtuber', 'Vlogger', 'Blogger']"
             class="dynamic-heading"
           />
         </h1>
@@ -18,6 +18,7 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem ante,
           sollicitudin et elementum quis, ultrices vitae dolor.
         </p>
+        <Cta :cta="cta" />
       </div>
     </div>
 
@@ -64,6 +65,12 @@ export default {
       imageHeight: 200,
       imageNames: ['MaskImage1.png', 'MaskImage2.png', 'MaskImage3.png'],
       carouselActiveIndex: 0,
+      cta: {
+        link: '/vlogs',
+        name: 'My Vlogs',
+        width: 120,
+        height: 50,
+      },
     };
   },
   methods: {

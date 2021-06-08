@@ -23,13 +23,16 @@
   transition: all 0.5s ease-in;
 }
 
-.page-leave-to {
+.page-leave-active{
   transition: all 0.5s ease-out;
 }
 
 .page-enter{
-  transform: translateY(100%);
+  opacity: .7;
+  transform: translateX(2%);
 }
+
 .page-leave-to{
-  transform:translateX(-100%);
+  opacity: 0;
+  transform: translateX(-2%);
 }

@@ -1,6 +1,7 @@
 <template>
   <section class="vlogs-page">
     <h1 class="video-title">{{ videoInfo[i + 1].name }}</h1>
+    <Cta :cta="cta" />
 
     <div class="thumbnail-background">
       <!-- <img src="~/assets/images/Stock2.png" alt="" /> -->
@@ -52,6 +53,12 @@ export default {
   data() {
     return {
       i: 0,
+      cta: {
+        link: '/vlogs',
+        name: 'My Vlogs',
+        width: 120,
+        height: 50,
+      },
       active: true,
       videoInfo: [
         {
