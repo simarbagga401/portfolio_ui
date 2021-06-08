@@ -14,18 +14,6 @@
 export default {
   name: 'ImageCarouselImageMask',
   props: ['width', 'height', 'imageName', 'active'],
-  computed: {
-    // isActive() {
-    //   if (this.active) {
-    //     return {
-    //       width: this.width + 100 + 'px',
-    //       height: this.height + 100 + 'px',
-    //     };
-    //   } else {
-    //     return { width: this.width + 'px', height: this.height + 'px' };
-    //   }
-    // },
-  },
 };
 </script>
 

@@ -1,15 +1,10 @@
 <template>
   <section class="photogallery-page">
-    <h1>photo gallery</h1>
-    <div
-      style="
-        width: 200px;
-        height: 200px;
-        border-radius: 10px;
-        background-color: lightblue;
-        margin: 10px;
-      "
-    ></div>
+    <div class="left">
+      <ImageMask />
+    </div>
+    <div class="center"></div>
+    <div class="right"></div>
   </section>
 </template>
 
@@ -23,6 +18,11 @@ export default {
   layout: responsiveLayout(),
   mounted() {
     alertResponsiveLayout();
+  },
+  data() {
+    return {
+      images: [{}],
+    };
   },
 };
 </script>

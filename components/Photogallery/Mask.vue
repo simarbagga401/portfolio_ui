@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="img-container" :style="isActive">
+    <div class="img-container">
       <img
         :src="require(`~/assets/images/${imageName}`)"
         alt="image"
@@ -12,19 +12,7 @@
 
 <script>
 export default {
-  props: ['width', 'height', 'imageName', 'active'],
-  computed: {
-    isActive() {
-      if (this.active) {
-        return {
-          width: this.width + 10 + 'px',
-          height: this.height + 10 + 'px',
-        };
-      } else {
-        return { width: this.width + 'px', height: this.height + 'px' };
-      }
-    },
-  },
+  props: ['width', 'height', 'imageName'],
 };
 </script>
 

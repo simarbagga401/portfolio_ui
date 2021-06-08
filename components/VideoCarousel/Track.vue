@@ -34,6 +34,7 @@ export default {};
   justify-content: center;
   width: 100%;
   height: 100%;
+  transition: all 0.5s ease-in-out;
 
   .left {
     transform: translateX(20px);
