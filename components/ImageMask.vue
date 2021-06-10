@@ -13,17 +13,19 @@
 
     <div v-if="decorationDirection == 'right'" class="decoration" id="right">
       <div class="circle" />
+      <div class="pipe" :style="{ height: pipeHeight + 'px' }" />
     </div>
 
     <div v-if="decorationDirection == 'left'" class="decoration" id="left">
       <div class="circle" />
+      <div class="pipe" :style="{ height: pipeHeight + 'px' }" />
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['width', 'height', 'imageName', 'decorationDirection'],
+  props: ['width', 'height', 'imageName', 'decorationDirection', 'pipeHeight'],
 };
 </script>
 
@@ -55,21 +57,6 @@ section {
   position: absolute;
   top: 20%;
 
-  &#right {
-    right: -45%;
-
-    .circle {
-      left: 110%;
-    }
-  }
-
-  &#left {
-    left: -45%;
-    .circle {
-      left: -40%;
-    }
-  }
-
   .circle {
     width: 25px;
     height: 25px;
@@ -77,6 +64,36 @@ section {
     border-radius: 50%;
     outline: 3px solid colors.$dark-green;
     bottom: 12px;
+  }
+  .pipe {
+    width: 3px;
+    height: 100px;
+    background: colors.$dark-green;
+    position: relative;
+    top: 0px;
+  }
+
+  &#right {
+    right: -90px;
+
+    .circle {
+      left: 110%;
+    }
+    .pipe {
+      left: 125%;
+    }
+  }
+
+  &#left {
+    left: -90px;
+
+    .circle {
+      left: -40%;
+    }
+
+    .pipe {
+      left: -25%;
+    }
   }
 }
 </style>

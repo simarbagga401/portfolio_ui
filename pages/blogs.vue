@@ -6,6 +6,7 @@
       :imageName="images[0]"
       :decorationDirection="dir"
       @click.native="dir == 'left' ? (dir = 'right') : (dir = 'left')"
+      :pipeHeight="100"
     />
   </section>
 </template>
@@ -24,8 +25,8 @@ export default {
   data() {
     return {
       dir: 'left',
-      width: 200,
-      height: 250,
+      width: 250,
+      height: 400,
       images: [
         'Stock1.png',
         'Stock2.png',
