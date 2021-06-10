@@ -1,42 +1,18 @@
 <template>
   <section class="photogallery-page">
     <div class="photo-track-wrapper" id="left">
-      <PhotogalleryMask
-        :width="width"
-        :height="height"
-        :imageName="images[0]"
-      />
-      <PhotogalleryMask
-        :width="width"
-        :height="height"
-        :imageName="images[1]"
-      />
+      <ImageMask :width="width" :height="height" :imageName="images[0]" />
+      <ImageMask :width="width" :height="height" :imageName="images[1]" />
     </div>
 
     <div class="photo-track-wrapper" id="center">
-      <PhotogalleryMask
-        :width="width2"
-        :height="height2"
-        :imageName="images[2]"
-      />
-      <PhotogalleryMask
-        :width="width2"
-        :height="height2"
-        :imageName="images[3]"
-      />
+      <ImageMask :width="width2" :height="height2" :imageName="images[2]" />
+      <ImageMask :width="width2" :height="height2" :imageName="images[3]" />
     </div>
 
     <div class="photo-track-wrapper" id="right">
-      <PhotogalleryMask
-        :width="width"
-        :height="height"
-        :imageName="images[4]"
-      />
-      <PhotogalleryMask
-        :width="width"
-        :height="height"
-        :imageName="images[5]"
-      />
+      <ImageMask :width="width" :height="height" :imageName="images[4]" />
+      <ImageMask :width="width" :height="height" :imageName="images[5]" />
     </div>
   </section>
 </template>

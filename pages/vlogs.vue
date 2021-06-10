@@ -7,12 +7,20 @@
         :src="`https://img.youtube.com/vi/${videos[i].videoId}/sddefault.jpg`"
         alt=""
       />
+
       <div class="video-carousel-track-wrapper">
         <VideoCarouselTrack
           :videos="videos"
           @change-carousel-active-index="changeCarouselActiveIndex"
         />
       </div>
+      <span
+        ><a
+          :href="`https://www.youtube.com/watch?v=${videos[i].videoId}`"
+          target="_blank"
+          >Watch on Youtube</a
+        ></span
+      >
     </div>
   </section>
 </template>
@@ -124,6 +132,25 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  span {
+    z-index: 10;
+    width: 200px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-bottom: 2px solid white;
+
+    a {
+      font-size: 18px;
+      color: white;
+
+      &:hover,
+      &:active {
+        color: rgba(255, 255, 255, 0.801);
+      }
+    }
+  }
 
   .video-carousel-track-wrapper {
     width: 100%;

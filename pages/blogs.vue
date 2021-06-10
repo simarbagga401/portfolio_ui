@@ -1,23 +1,12 @@
 <template>
   <section class="blogs-page overflow">
-    <div
-      style="
-        width: 200px;
-        height: 200px;
-        border-radius: 10px;
-        background-color: lightblue;
-        margin: 10px;
-      "
-    ></div>
-    <h1 style="font-size: 100px">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
-      voluptates velit repellendus accusantium distinctio iste, nesciunt
-      doloribus perferendis, nam dicta ea inventore suscipit excepturi animi,
-      odio ut adipisci placeat ipsum? Lorem ipsum, dolor sit amet consectetur
-      adipisicing elit. Ea, quos! Repellat inventore omnis consequatur
-      perspiciatis eius dicta alias sequi neque eum! Eum nulla, nobis expedita
-      esse repudiandae at fugiat quod?
-    </h1>
+    <ImageMask
+      :width="width"
+      :height="height"
+      :imageName="images[0]"
+      :decorationDirection="dir"
+      @click.native="dir == 'left' ? (dir = 'right') : (dir = 'left')"
+    />
   </section>
 </template>
 
@@ -34,7 +23,18 @@ export default {
   },
   data() {
     return {
-      displayh: false,
+      dir: 'left',
+      width: 200,
+      height: 250,
+      images: [
+        'Stock1.png',
+        'Stock2.png',
+        'Stock3.png',
+        'Stock4.png',
+        'Stock5.png',
+        'Stock6.png',
+        'Stock7.png',
+      ],
     };
   },
 };
@@ -47,5 +47,8 @@ export default {
   width: 100%;
   height: 100%;
   background: colors.$primary-orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
