@@ -1,0 +1,24 @@
+.page-enter-active {
+  transition: all 0.25s ease-in;
+}
+
+.page-leave-active{
+  transition: all 0.25s ease-out;
+}
+
+.page-enter{
+  opacity: .7;
+  transform: translateX(2%);
+}
+
+.page-leave-to{
+  opacity: 0;
+  transform: translateX(-2%);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to  {
+  opacity: 0;
+}

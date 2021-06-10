@@ -1,21 +1,45 @@
 <template>
-  <div class="track" @change="change()">
+  <div class="track">
     <VideoCarouselBtn direction="left" class="video-carousel-btn-left" />
 
-    <slot />
+    <carousel-3d
+      :autoplay="false"
+      :autoplayTimeout="5000"
+      :autoplayHoverPause="true"
+      :display="3"
+      :perspective="0"
+      :animationSpeed="750"
+      :width="500"
+      :border="0"
+      :height="281.25"
+      :space="500"
+      :clickable="false"
+      :controlsVisible="true"
+      @after-slide-change="changeCarouselActiveIndex"
+    >
+      <slide v-for="video in videos" :index="video.id" :key="video.id">
+        <template slot-scope="{ isCurrent }">
+          <VideoCarouselMask :videoId="video.videoId" :active="isCurrent" />
+        </template>
+      </slide>
+    </carousel-3d>
 
     <VideoCarouselBtn direction="right" class="video-carousel-btn-right" />
   </div>
 </template>
 
 <script>
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 export default {
   props: ['videos'],
-
   methods: {
-    change() {
-      console.log('change');
+    changeCarouselActiveIndex(index) {
+      this.$emit('change-carousel-active-index', index);
     },
+  },
+  components: {
+    Carousel3d,
+    Slide,
   },
 };
 </script>
@@ -30,6 +54,10 @@ export default {
   width: 100%;
   height: 100%;
   transition: all 0.5s ease-in-out;
+
+  .carousel-3d-slide {
+    background: transparent;
+  }
 
   .video-carousel-btn-left {
     z-index: 10;

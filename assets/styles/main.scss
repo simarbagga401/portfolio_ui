@@ -1,5 +1,7 @@
 @use './typography';
 @use './colors';
+@use './transitions';
+
 
 *,
 *::after,
@@ -21,20 +23,3 @@
 ::-moz-selection { background: colors.$primary-black; color:white; }
 ::selection { background: colors.$primary-black; color:white; }
 
-.page-enter-active {
-  transition: all 0.25s ease-in;
-}
-
-.page-leave-active{
-  transition: all 0.25s ease-out;
-}
-
-.page-enter{
-  opacity: .7;
-  transform: translateX(2%);
-}
-
-.page-leave-to{
-  opacity: 0;
-  transform: translateX(-2%);
-}

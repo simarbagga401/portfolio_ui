@@ -31,6 +31,10 @@ export default {
   background: colors.$primary-black;
   margin-top: 15px;
 
+  &:hover,
+  &:active {
+    background: colors.$light-black;
+  }
   a {
     // color: colors.$primary-orange;
     font-weight: typography.$medium;

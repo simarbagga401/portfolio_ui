@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="img-container">
+    <div
+      class="img-container"
+      :style="{ width: width + 'px', height: height + 'px' }"
+    >
       <img
         :src="require(`~/assets/images/${imageName}`)"
         alt="image"
@@ -20,8 +23,6 @@ export default {
 .img-container {
   background: rgb(255, 138, 138);
   border-radius: 20px;
-  width: 100%;
-  height: 100%;
 
   img {
     width: 100%;
