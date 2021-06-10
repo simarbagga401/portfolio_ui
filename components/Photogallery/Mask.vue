@@ -20,6 +20,8 @@ export default {
 .img-container {
   background: rgb(255, 138, 138);
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
 
   img {
     width: 100%;

@@ -24,6 +24,8 @@ export default {
   plugins: [
     '~/plugins/vue-tooltip.js',
     '~/plugins/vue-typer.js',
+    '~/plugins/vue-carousel-3d.js',
+
     // {
     //   src: '~/plugins/nuxt-window.js',
     //   mode: 'client',

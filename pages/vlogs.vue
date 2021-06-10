@@ -1,30 +1,39 @@
 <template>
   <section class="vlogs-page">
-    <h1 class="video-title">{{ videoInfo[i + 1].name }}</h1>
+    <h1 class="video-title">{{ videos[i + 1].name }}</h1>
 
     <div class="thumbnail-background">
-      <!-- <img src="~/assets/images/Stock2.png" alt="" /> -->
+      <img
+        src="https://img.youtube.com/vi/CzHnwcZnF-E/maxresdefault.jpg"
+        alt=""
+      />
 
       <div class="video-carousel-track-wrapper">
-        <!-- <template v-for="video in videoInfo"> -->
-
-        <VideoCarouselBtn direction="left" @click.native="i--" />
-
-        <template v-for="(video, index) in videoInfo">
-          <div
-            class="video"
-            :class="{
-              left: index == i,
-              center: index == i + 1,
-              right: index == i + 2,
-            }"
-            :key="video.id"
+        <VideoCarouselTrack>
+          <carousel-3d
+            :autoplay="false"
+            :autoplayTimeout="5000"
+            :autoplayHoverPause="true"
+            :display="3"
+            :perspective="0"
+            :animationSpeed="750"
+            :width="500"
+            :border="0"
+            :height="281.25"
+            :space="500"
+            :controlsVisible="true"
           >
-            <p>{{ index }}</p>
-          </div>
-        </template>
-
-        <VideoCarouselBtn direction="right" @click.native="i++" />
+            <slide v-for="video in videos" :index="video.id" :key="video.id">
+              <template slot-scope="{ isCurrent, index }">
+                <VideoCarouselMask
+                  :videoId="video.videoId"
+                  :active="isCurrent"
+                  :class="`mask-${index}`"
+                />
+              </template>
+            </slide>
+          </carousel-3d>
+        </VideoCarouselTrack>
       </div>
     </div>
   </section>
@@ -35,11 +44,21 @@ import {
   responsiveLayout,
   alertResponsiveLayout,
 } from '~/functions/responsiveLayout';
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 
 export default {
   layout: responsiveLayout(),
   mounted() {
     alertResponsiveLayout();
+  },
+  components: {
+    Carousel3d,
+    Slide,
+  },
+  methods: {
+    logVal(val) {
+      console.log(val);
+    },
   },
   data() {
     return {
@@ -51,7 +70,7 @@ export default {
         height: 50,
       },
       active: true,
-      videoInfo: [
+      videos: [
         {
           id: 0,
           name: 'Tomazacre Music',
@@ -100,32 +119,6 @@ export default {
       ],
     };
   },
-  watch: {
-    i(oldVal, newVal) {
-      console.log(oldVal, newVal);
-    },
-  },
-  computed: {
-    carouselClass() {
-      return (index) => {
-        return {
-          left: index == this.i,
-          center: index == this.i + 1,
-          right: index == this.i + 2,
-        };
-      };
-    },
-  },
-  methods: {
-    incrementI() {
-      this.i += 1;
-      console.log(this.i);
-    },
-    decrementI() {
-      this.i += 1;
-      console.log(this.i);
-    },
-  },
 };
 </script>
 
@@ -145,6 +138,10 @@ export default {
   align-items: center;
 }
 
+.carousel-3d-slide {
+  background: transparent;
+}
+
 .video-title {
   font-family: typography.$serif;
   color: colors.$dark-green;
@@ -156,61 +153,29 @@ export default {
 
 .thumbnail-background {
   padding: 10px;
+  position: relative;
   width: 90%;
   height: 80%;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgb(255, 133, 133);
   justify-content: center;
 
   .video-carousel-track-wrapper {
     width: 100%;
     height: 50%;
-    background: rgb(255, 136, 136);
     display: flex;
     align-items: center;
-
-    .video {
-      width: 200px;
-      height: 150px;
-      background: rgb(127, 125, 255);
-      border: 1px solid #000;
-      display: none;
-      transition: all 0.5s ease-in-out;
-
-      &.left,
-      &.right {
-        background: rgb(162, 255, 190);
-        display: block;
-      }
-
-      &.left {
-        transform: translateX(10px);
-      }
-
-      &.right {
-        transform: translateX(-10px);
-      }
-
-      &.center {
-        background: rgb(255, 92, 201);
-        width: 250px;
-        height: 180px;
-        display: block;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25),
-          -5px -5px 10px rgba(0, 0, 0, 0.25);
-        z-index: 10;
-      }
-    }
+    z-index: 13;
   }
 
   img {
     width: 100%;
     height: 100%;
+    position: absolute;
     object-fit: cover;
-    object-position: top left;
+    // object-position: top left;
     border-radius: 30px;
     opacity: 0.8;
   }

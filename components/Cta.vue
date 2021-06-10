@@ -27,7 +27,7 @@ export default {
 
 .btn {
   width: 100px;
-  height: 40px;
+  min-height: 40px;
   background: colors.$primary-black;
   margin-top: 15px;
 
