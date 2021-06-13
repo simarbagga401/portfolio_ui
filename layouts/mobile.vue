@@ -114,7 +114,7 @@ section {
 </style>
 
 <script>
-import { dynamicIconColorLogic } from '~/functions/dynamicColors';
+import { dynamicIconColorLogic } from '~/js/dynamicColors';
 export default {
   data() {
     return {

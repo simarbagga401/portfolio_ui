@@ -55,7 +55,7 @@ section {
   // overflow: hidden; // set in production for no overflow
   display: grid;
   grid-template-rows: 7% 88% 5%;
-  grid-template-columns: 8% 92%;
+  grid-template-columns: 100px 92%;
   grid-template-areas:
     'nav nav nav'
     'aside1 content content'
@@ -89,7 +89,7 @@ h1 {
 </style>
 
 <script>
-import { dynamicIconColorLogic } from '~/functions/dynamicColors';
+import { dynamicIconColorLogic } from '~/js/dynamicColors';
 export default {
   data() {
     return {

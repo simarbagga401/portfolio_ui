@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { dynamicIconColorLogic } from '~/functions/dynamicColors';
+import { dynamicIconColorLogic } from '~/js/dynamicColors';
 export default {
   props: ['width', 'height', 'link', 'name'],
   methods: {

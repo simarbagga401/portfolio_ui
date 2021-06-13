@@ -57,10 +57,7 @@
 </template>
 
 <script>
-import {
-  responsiveLayout,
-  alertResponsiveLayout,
-} from '~/functions/responsiveLayout';
+import { responsiveLayout, alertResponsiveLayout } from '~/js/responsiveLayout';
 
 export default {
   layout: responsiveLayout(),
@@ -103,7 +100,7 @@ export default {
 <style lang="scss" scoped>
 @use '~/assets/styles/colors';
 @use '~/assets/styles/typography';
-// @use '~/assets/styles/classes';
+@use '~/assets/styles/classes';
 
 .landing-page {
   width: 100%;
@@ -141,18 +138,6 @@ export default {
   align-items: flex-end;
   justify-content: center;
   animation: fade 0.5s ease-in;
-
-  @keyframes fade {
-    0% {
-      transform: translateY(-20px);
-      // opacity: 0.3;
-    }
-
-    100% {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
 
   @media (max-width: 950px) {
     align-items: center;

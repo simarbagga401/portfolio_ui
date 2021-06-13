@@ -8,7 +8,7 @@
 import {
   dynamicBackgroundColorLogic,
   dynamicColorLogic,
-} from '~/functions/dynamicColors';
+} from '~/js/dynamicColors';
 export default {
   computed: {
     dynamicBackgroundColor() {

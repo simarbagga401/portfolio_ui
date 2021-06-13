@@ -28,10 +28,7 @@
 </template>
 
 <script>
-import {
-  responsiveLayout,
-  alertResponsiveLayout,
-} from '~/functions/responsiveLayout';
+import { responsiveLayout, alertResponsiveLayout } from '~/js/responsiveLayout';
 
 export default {
   layout: responsiveLayout(),

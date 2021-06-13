@@ -17,13 +17,13 @@
 
       <div class="description-wrapper">
         <p class="description">
-          {{ truncate(description, 150, '...') }}
+          {{ truncate(description, 110, '...') }}
         </p>
 
         <Cta
           :width="cta.width"
           :height="cta.height"
-          :link="cta.link"
+          :link="`/blogs/${id}`"
           :name="cta.name"
         />
       </div>
@@ -43,6 +43,7 @@ export default {
     'imageName',
     'heading',
     'description',
+    'id',
     'date',
   ],
   data() {
@@ -50,7 +51,6 @@ export default {
       width: 190,
       height: 310,
       cta: {
-        link: '/vlogs',
         name: 'Read More',
         width: 96,
         height: 26,
@@ -82,7 +82,7 @@ export default {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin: 10px 0px;
+  margin: 35% 0px;
 
   .text-wrapper {
     width: 80%;

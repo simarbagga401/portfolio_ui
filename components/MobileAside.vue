@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { dynamicBackgroundColorLogic } from '~/functions/dynamicColors';
+import { dynamicBackgroundColorLogic } from '~/js/dynamicColors';
 export default {
   data() {
     return {

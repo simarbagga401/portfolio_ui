@@ -26,10 +26,7 @@
 </template>
 
 <script>
-import {
-  responsiveLayout,
-  alertResponsiveLayout,
-} from '~/functions/responsiveLayout';
+import { responsiveLayout, alertResponsiveLayout } from '~/js/responsiveLayout';
 
 export default {
   layout: responsiveLayout(),
@@ -99,6 +96,7 @@ export default {
 <style lang="scss" scoped>
 @use '~/assets/styles/colors';
 @use '~/assets/styles/typography';
+@use '~/assets/styles/classes';
 
 .vlogs-page {
   width: 100%;
@@ -119,10 +117,11 @@ export default {
   text-decoration-color: colors.$secondary-orange;
   text-decoration-thickness: 3px;
   transition: all 0.5s ease-in-out;
+  animation: fade 0.5s ease-in;
 }
 
 .thumbnail-background {
-  outline: 5px solid colors.$dark-green;
+  outline: 5px solid colors.$dark-orange;
   padding: 10px;
   position: relative;
   width: 90%;

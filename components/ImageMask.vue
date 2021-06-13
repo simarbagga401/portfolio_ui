@@ -31,6 +31,7 @@ export default {
 section {
   position: relative;
   margin: 25px 0;
+  z-index: 10;
 }
 
 .img-container {

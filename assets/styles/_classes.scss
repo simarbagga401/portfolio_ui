@@ -54,3 +54,16 @@ $lighten-amount: 10%;
     display: none;
   }
 }
+
+// animation
+  @keyframes fade {
+    0% {
+      transform: translateY(-20px);
+      // opacity: 0.3;
+    }
+
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }

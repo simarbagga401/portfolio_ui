@@ -16,10 +16,7 @@
 </template>
 
 <script>
-import {
-  dynamicColorLogic,
-  dynamicIconColorLogic,
-} from '~/functions/dynamicColors';
+import { dynamicColorLogic, dynamicIconColorLogic } from '~/js/dynamicColors';
 export default {
   props: ['icon'],
   data() {
