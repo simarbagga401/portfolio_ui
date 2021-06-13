@@ -13,7 +13,7 @@
       :border="0"
       :height="281.25"
       :space="500"
-      :clickable="false"
+      :clickable="true"
       :controlsVisible="true"
       @after-slide-change="changeCarouselActiveIndex"
     >

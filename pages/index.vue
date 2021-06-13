@@ -18,7 +18,12 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem ante,
           sollicitudin et elementum quis, ultrices vitae dolor.
         </p>
-        <Cta :cta="cta" />
+        <Cta
+          :width="cta.width"
+          :height="cta.height"
+          :link="cta.link"
+          :name="cta.name"
+        />
       </div>
     </div>
 

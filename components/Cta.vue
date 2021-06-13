@@ -1,10 +1,7 @@
 <template>
-  <button
-    class="btn"
-    :style="{ width: cta.width + 'px', height: cta.height + 'px' }"
-  >
-    <NuxtLink :to="cta.link" :style="{ color: dynamicColor() }">{{
-      cta.name
+  <button class="btn" :style="{ width: width + 'px', height: height + 'px' }">
+    <NuxtLink :to="link" :style="{ color: dynamicColor() }">{{
+      name
     }}</NuxtLink>
   </button>
 </template>
@@ -12,7 +9,7 @@
 <script>
 import { dynamicIconColorLogic } from '~/functions/dynamicColors';
 export default {
-  props: ['cta'],
+  props: ['width', 'height', 'link', 'name'],
   methods: {
     dynamicColor() {
       return dynamicIconColorLogic()[2];

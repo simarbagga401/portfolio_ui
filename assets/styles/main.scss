@@ -19,7 +19,12 @@
   font-family:typography.$sans;
   list-style:none;
   color:colors.$primary-black;
+  scroll-behavior: smooth;
 }
 ::-moz-selection { background: colors.$primary-black; color:white; }
 ::selection { background: colors.$primary-black; color:white; }
 
+
+img:hover,img:active{
+  opacity: 0.9;
+}
