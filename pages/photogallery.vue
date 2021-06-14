@@ -72,9 +72,15 @@ export default {
   },
   methods: {
     syncScroll() {
-      this.centerScroll.scrollTo(0, this.calX, this.calX * 5);
-      this.leftScroll.scrollTo(0, this.calX, this.calX * 6);
-      this.rightScroll.scrollTo(0, this.calX, this.calX * 8);
+      if (this.centerScroll.scrollTop < 300) {
+        this.centerScroll.scrollTo(0, this.calX, this.calX * 5);
+        this.leftScroll.scrollTo(0, -this.calX, this.calX * 6);
+        this.rightScroll.scrollTo(0, -this.calX, this.calX * 8);
+      } else {
+        this.centerScroll.scrollTo(0, -this.calX, this.calX * 5);
+        this.leftScroll.scrollTo(0, this.calX, this.calX * 6);
+        this.rightScroll.scrollTo(0, this.calX, this.calX * 8);
+      }
     },
     initScrollbar() {
       //init
@@ -96,7 +102,8 @@ export default {
       });
       // set initial position
 
-      this.leftScroll.scrollTop = 500;
+      this.leftScroll.scrollTop = this.calX;
+      this.rightScroll.scrollTop = this.calX;
     },
     addScrollListener() {
       // this.leftScroll.addListener((status) => {
