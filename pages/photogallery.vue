@@ -63,21 +63,45 @@ export default {
       height: 371,
       width2: 415,
       height2: 481,
+      centerScroll: null,
+      leftScroll: null,
+      rightScroll: null,
     };
   },
   methods: {
     syncScroll() {
-      console.log('working');
-      console.log(document.querySelector('#center').limit);
+      // console.log('working', this.centerScroll.scrollTop);
+      // this.centerScroll.scrollTop = 600;
+      this.centerScroll.scrollTo(0, 1000, 2000);
+      // this.centerScroll.setMomentum(0, 1000);
+      // console.log(document.querySelector('#center').limit);
     },
     initScrollbar() {
-      const options = {
+      this.leftScroll = Scrollbar.init(document.querySelector('#left'), {
+        damping: 0.0185,
+        thumbMinSize: 1,
+      });
+
+      this.centerScroll = Scrollbar.init(document.querySelector('#center'), {
         damping: 0.0165,
         thumbMinSize: 1,
-      };
+      });
 
-      // Scrollbar.initAll(options);
-      Scrollbar.init(document.querySelector('#center'), options);
+      this.rightScroll = Scrollbar.init(document.querySelector('#right'), {
+        damping: 0.0105,
+        thumbMinSize: 1,
+      });
+    },
+    addScrollListener() {
+      // this.leftScroll.addListener((status) => {
+      //   console.log(`left-status`, status);
+      // });
+      // this.centerScroll.addListener((status) => {
+      //   console.log(`center-status-${status}`);
+      // });
+      // this.rightScroll.addListener((status) => {
+      //   console.log(`right-status-${status}`);
+      // });
     },
     destroyScrollbar() {
       Scrollbar.destroyAll();
@@ -85,6 +109,7 @@ export default {
   },
   mounted() {
     this.initScrollbar();
+    this.addScrollListener();
   },
   destroyed() {
     this.destroyScrollbar();
