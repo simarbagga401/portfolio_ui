@@ -58,6 +58,7 @@ export default {
         'Stock5.png',
         'Stock6.png',
         'Stock7.png',
+        'Stock7.png',
       ],
       width: 254,
       height: 371,
@@ -66,17 +67,19 @@ export default {
       centerScroll: null,
       leftScroll: null,
       rightScroll: null,
+      calX: null,
     };
   },
   methods: {
     syncScroll() {
-      // console.log('working', this.centerScroll.scrollTop);
-      // this.centerScroll.scrollTop = 600;
-      this.centerScroll.scrollTo(0, 1000, 2000);
-      // this.centerScroll.setMomentum(0, 1000);
-      // console.log(document.querySelector('#center').limit);
+      this.centerScroll.scrollTo(0, this.calX, this.calX);
+      this.leftScroll.scrollTo(0, this.calX, this.calX);
+      this.rightScroll.scrollTo(0, this.calX, this.calX);
     },
     initScrollbar() {
+      //init
+      this.calX = 2000 * this.images.length;
+
       this.leftScroll = Scrollbar.init(document.querySelector('#left'), {
         damping: 0.0185,
         thumbMinSize: 1,
@@ -91,6 +94,9 @@ export default {
         damping: 0.0105,
         thumbMinSize: 1,
       });
+      // set initial position
+
+      this.leftScroll.scrollTop = 500;
     },
     addScrollListener() {
       // this.leftScroll.addListener((status) => {
