@@ -72,13 +72,13 @@ export default {
   },
   methods: {
     syncScroll() {
-      this.centerScroll.scrollTo(0, this.calX, this.calX);
-      this.leftScroll.scrollTo(0, this.calX, this.calX);
-      this.rightScroll.scrollTo(0, this.calX, this.calX);
+      this.centerScroll.scrollTo(0, this.calX, this.calX * 5);
+      this.leftScroll.scrollTo(0, this.calX, this.calX * 6);
+      this.rightScroll.scrollTo(0, this.calX, this.calX * 8);
     },
     initScrollbar() {
       //init
-      this.calX = 2000 * this.images.length;
+      this.calX = 500 * this.images.length;
 
       this.leftScroll = Scrollbar.init(document.querySelector('#left'), {
         damping: 0.0185,
