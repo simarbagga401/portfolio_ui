@@ -14,6 +14,7 @@
           @change-carousel-active-index="changeCarouselActiveIndex"
         />
       </div>
+
       <span
         ><a
           :href="`https://www.youtube.com/watch?v=${videos[i].videoId}`"

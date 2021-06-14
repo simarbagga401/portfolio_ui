@@ -1,34 +1,47 @@
 <template>
   <section class="photogallery-page">
-    <div class="photo-track-wrapper overflow" id="left" @scroll="fancyScroll">
+    <button @click="syncScroll">scroll</button>
+    <div class="photo-track-wrapper overflow" id="left" data-scrollbar>
       <template v-for="(image, i) in images">
         <ImageMask
           :width="width"
           :height="height"
           :imageName="image"
           :key="i"
+          :id="`left-${i}`"
         />
       </template>
     </div>
 
-    <div class="photo-track-wrapper overflow" id="center" @scroll="fancyScroll">
-      <ImageMask :width="width2" :height="height2" :imageName="images[2]" />
-      <ImageMask :width="width2" :height="height2" :imageName="images[3]" />
-      <ImageMask :width="width2" :height="height2" :imageName="images[4]" />
-      <ImageMask :width="width2" :height="height2" :imageName="images[5]" />
+    <div class="photo-track-wrapper overflow" id="center" data-scrollbar>
+      <template v-for="(image, i) in images">
+        <ImageMask
+          :width="width2"
+          :height="height2"
+          :imageName="image"
+          :key="i"
+          :id="`center-${i}`"
+        />
+      </template>
     </div>
 
-    <div class="photo-track-wrapper overflow" id="right" @scroll="fancyScroll">
-      <ImageMask :width="width" :height="height" :imageName="images[4]" />
-      <ImageMask :width="width" :height="height" :imageName="images[5]" />
-      <ImageMask :width="width" :height="height" :imageName="images[6]" />
-      <ImageMask :width="width" :height="height" :imageName="images[6]" />
+    <div class="photo-track-wrapper overflow" id="right" data-scrollbar>
+      <template v-for="(image, i) in images">
+        <ImageMask
+          :width="width"
+          :height="height"
+          :imageName="image"
+          :key="i"
+          :id="`right-${i}`"
+        />
+      </template>
     </div>
   </section>
 </template>
 
 <script>
 import { responsiveLayout, alertResponsiveLayout } from '~/js/responsiveLayout';
+import Scrollbar from 'smooth-scrollbar';
 
 export default {
   layout: responsiveLayout(),
@@ -53,20 +66,29 @@ export default {
     };
   },
   methods: {
-    fancyScroll(e) {
-      // console.log('scrolling', e.target.scrollTop);
-      const element = e.target;
-      // element.scrollTo({ bottom: 1000, behavior: 'smooth' });
-      // element.scrollTop += 40;
-      // console.log(element.offsetBottom);
+    syncScroll() {
+      console.log('working');
+      console.log(document.querySelector('#center').limit);
+    },
+    initScrollbar() {
+      const options = {
+        damping: 0.0165,
+        thumbMinSize: 1,
+      };
+
+      // Scrollbar.initAll(options);
+      Scrollbar.init(document.querySelector('#center'), options);
+    },
+    destroyScrollbar() {
+      Scrollbar.destroyAll();
     },
   },
-  // mounted() {
-  //   document.addEventListener('scroll', this.fancyScroll);
-  // },
-  // destroyed() {
-  //   document.removeEventListener('scroll', this.fancyScroll);
-  // },
+  mounted() {
+    this.initScrollbar();
+  },
+  destroyed() {
+    this.destroyScrollbar();
+  },
 };
 </script>
 

@@ -22,9 +22,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/vue-tooltip.js',
     '~/plugins/vue-typer.js',
     '~/plugins/vue-carousel-3d.js',
+    '~/plugins/vue-smooth-scroll.js',
 
     // {
     //   src: '~/plugins/nuxt-window.js',
