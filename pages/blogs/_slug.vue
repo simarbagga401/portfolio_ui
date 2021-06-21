@@ -18,7 +18,7 @@
           />
         </div>
 
-        <div class="blog-content">
+        <div class="blog-content overflow">
           <div class="heading-wrapper">
             <h2>{{ blog.title }}</h2>
 

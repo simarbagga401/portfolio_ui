@@ -1,7 +1,6 @@
 <template>
   <section class="photogallery-page">
-    <button @click="syncScroll">scroll</button>
-    <div class="photo-track-wrapper overflow" id="left" data-scrollbar>
+    <div class="photo-track-wrapper overflow" id="left">
       <template v-for="(image, i) in images">
         <ImageMask
           :width="width"
@@ -13,7 +12,7 @@
       </template>
     </div>
 
-    <div class="photo-track-wrapper overflow" id="center" data-scrollbar>
+    <div class="photo-track-wrapper overflow" id="center">
       <template v-for="(image, i) in images">
         <ImageMask
           :width="width2"
@@ -25,7 +24,7 @@
       </template>
     </div>
 
-    <div class="photo-track-wrapper overflow" id="right" data-scrollbar>
+    <div class="photo-track-wrapper overflow" id="right">
       <template v-for="(image, i) in images">
         <ImageMask
           :width="width"
@@ -68,6 +67,8 @@ export default {
       leftScroll: null,
       rightScroll: null,
       calX: null,
+      scrollReady: true,
+      scrolledToBottom: false,
     };
   },
   methods: {
@@ -76,10 +77,12 @@ export default {
         this.centerScroll.scrollTo(0, this.calX, this.calX * 5);
         this.leftScroll.scrollTo(0, -this.calX, this.calX * 6);
         this.rightScroll.scrollTo(0, -this.calX, this.calX * 8);
-      } else {
+        this.scrolledToBottom = true;
+      } else if (this.scrolledToBottom) {
         this.centerScroll.scrollTo(0, -this.calX, this.calX * 5);
         this.leftScroll.scrollTo(0, this.calX, this.calX * 6);
         this.rightScroll.scrollTo(0, this.calX, this.calX * 8);
+        this.scrolledToBottom = false;
       }
     },
     initScrollbar() {
@@ -105,24 +108,17 @@ export default {
       this.leftScroll.scrollTop = this.calX;
       this.rightScroll.scrollTop = this.calX;
     },
-    addScrollListener() {
-      // this.leftScroll.addListener((status) => {
-      //   console.log(`left-status`, status);
-      // });
-      // this.centerScroll.addListener((status) => {
-      //   console.log(`center-status-${status}`);
-      // });
-      // this.rightScroll.addListener((status) => {
-      //   console.log(`right-status-${status}`);
-      // });
-    },
     destroyScrollbar() {
       Scrollbar.destroyAll();
     },
   },
   mounted() {
     this.initScrollbar();
-    this.addScrollListener();
+    this.syncScroll();
+    setInterval(() => {
+      this.syncScroll();
+      console.log('setInterval: some minutes passed');
+    }, 20000);
   },
   destroyed() {
     this.destroyScrollbar();
