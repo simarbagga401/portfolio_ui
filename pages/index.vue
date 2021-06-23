@@ -139,7 +139,7 @@ export default {
   justify-content: center;
   animation: fade 0.5s ease-in;
 
-  @media (max-width: 950px) {
+  @media (max-width: 1200px) {
     align-items: center;
   }
 
@@ -176,6 +176,19 @@ export default {
 
       span {
         font-family: typography.$serif;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .dynamic-heading {
+        font-size: 60px;
+      }
+      h2 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 17px;
       }
     }
   }
