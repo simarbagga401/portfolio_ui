@@ -1,45 +1,7 @@
 <template>
-  <section class="blogs-page overflow">
-    <!-- <template v-for="(blog, i) in blogs">
-      <BlogPreview
-        :imageName="blog.imageName"
-        :heading="blog.heading"
-        :description="blog.description"
-        :decorationHeight="150"
-        :date="blog.date"
-        :direction="setBlogDirection(i)"
-        :key="i"
-      />
-    </template> -->
-
-    <template v-for="(blog, i) in blogs">
-      <section class="preview-left" :key="blog.id">
-        <BlogPreview
-          v-if="setBlogDirection(i) == 'left'"
-          :imageName="blog.imageName"
-          :heading="blog.heading"
-          :description="blog.description"
-          :decorationHeight="150"
-          :date="blog.date"
-          :direction="setBlogDirection(i)"
-          :id="blog.id"
-        />
-      </section>
-
-      <section class="preview-right" :key="blog.id + 1000">
-        <BlogPreview
-          v-if="setBlogDirection(i) == 'right'"
-          :imageName="blog.imageName"
-          :heading="blog.heading"
-          :description="blog.description"
-          :decorationHeight="150"
-          :date="blog.date"
-          :direction="setBlogDirection(i)"
-          :id="blog.id"
-        />
-      </section>
-    </template>
-  </section>
+  <div class="blog-carousel-track-wrapper">
+    <BlogTrack :blogs="blogs" />
+  </div>
 </template>
 
 <script>
@@ -120,26 +82,18 @@ export default {
 <style lang="scss" scoped>
 @use '~/assets/styles/colors';
 
-.blogs-page {
+// .blogs-page {
+//   width: 100%;
+//   height: 100%;
+//   background: colors.$primary-orange;
+// }
+
+.blog-carousel-track-wrapper {
   width: 100%;
   height: 100%;
-  background: colors.$primary-orange;
-  display: grid;
-  grid-template-columns: 1fr 0.22fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: 'left - right';
-}
-
-.preview-left {
-  grid-area: left;
-  background: rgb(255, 196, 196);
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.preview-right {
-  grid-area: right;
-  background: rgb(192, 209, 255);
+  align-items: center;
+  z-index: 13;
+  background: colors.$primary-orange;
 }
 </style>

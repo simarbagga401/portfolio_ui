@@ -1,10 +1,5 @@
 <template>
   <div id="blog-preview" :class="{ left: direction == 'left' }">
-    <div v-if="direction == 'right'" class="decoration" id="left">
-      <div class="circle" />
-      <div class="pipe" :style="{ height: decorationHeight + 'px' }" />
-    </div>
-
     <ImageMask :width="width" :height="height" :imageName="imageName" />
 
     <div class="text-wrapper">
@@ -28,10 +23,18 @@
         />
       </div>
     </div>
-    <div v-if="direction == 'left'" class="decoration" id="right">
+
+    <!-- Decorations circles and pipe -->
+    <!-- <div v-if="direction == 'left'" class="decoration" id="right">
       <div class="circle" />
       <div class="pipe" :style="{ height: decorationHeight + 'px' }" />
     </div>
+
+
+    <div v-if="direction == 'right'" class="decoration" id="left">
+      <div class="circle" />
+      <div class="pipe" :style="{ height: decorationHeight + 'px' }" />
+    </div>  -->
   </div>
 </template>
 
@@ -77,7 +80,7 @@ export default {
 #blog-preview {
   width: 550px;
   height: 40%;
-  background: rgb(255, 100, 100);
+  // background: rgb(255, 100, 100);
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -87,7 +90,7 @@ export default {
   .text-wrapper {
     width: 80%;
     height: 100%;
-    background: rgb(127, 113, 255);
+    // background: rgb(127, 113, 255);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -101,7 +104,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgb(113, 255, 184);
+      // background: rgb(113, 255, 184);
       padding: 5px 5px;
       margin-bottom: 5px;
       position: relative;
@@ -131,7 +134,7 @@ export default {
       .date-wrapper {
         width: 100px;
         height: 50px;
-        background: rgb(255, 104, 217);
+        // background: rgb(255, 104, 217);
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -143,12 +146,12 @@ export default {
         min-width: 180px;
         width: 60%;
         font-family: typography.$serif;
-        background: rgb(214, 214, 214);
+        // background: rgb(214, 214, 214);
       }
     }
 
     .description-wrapper {
-      background: rgb(201, 201, 201);
+      // background: rgb(201, 201, 201);
       height: 60%;
       width: 70%;
 

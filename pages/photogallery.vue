@@ -148,19 +148,19 @@ export default {
 
   &#left {
     grid-area: left;
-    background: rgb(255, 174, 174);
+    // background: rgb(255, 174, 174);
     align-items: flex-end;
   }
 
   &#center {
     grid-area: center;
-    background: rgb(210, 255, 233);
+    // background: rgb(210, 255, 233);
     align-items: center;
   }
 
   &#right {
     grid-area: right;
-    background: rgb(255, 195, 245);
+    // background: rgb(255, 195, 245);
     align-items: flex-start;
   }
 }
