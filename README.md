@@ -1,4 +1,5 @@
 # portfolio_website
+## Preview: https://john-doe-vlog.netlify.com
 Nuxt.js Portfolio Website
 ![Welcome (9)](https://user-images.githubusercontent.com/67456870/120071295-3f123d80-c0ac-11eb-89b0-3912ebac0345.png)
 
